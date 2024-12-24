@@ -1,0 +1,220 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "FeelBetter"; /* Nom que vous utiliserez dans CSS */
+  src: url("./assets/fonts/Feel_Better.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyUglyHandwriting"; /* Nom que vous utiliserez dans CSS */
+  src: url("./assets/fonts/HechoAMano-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: rgb(228, 228, 228);
+}
+
+*:not(:empty) {
+  font-family: "FeelBetter", serif;
+}
+
+#firstSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  gap: 50px;
+}
+#firstSection .letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#firstSection .letter.active #enveloppe {
+  background-color: transparent;
+  box-shadow: none;
+}
+#firstSection .letter.active #enveloppe:hover {
+  box-shadow: none;
+  transform: scale(1);
+}
+#firstSection .letter.active #enveloppe::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+#firstSection .letter.active #enveloppe::after {
+  transform: translateY(600px);
+  opacity: 0;
+  pointer-events: none;
+}
+#firstSection .letter.active #enveloppe #maskPostIt {
+  transform: translateY(800px);
+}
+#firstSection .letter.active #enveloppe #maskPostIt #post-it {
+  transform: translateY(-950px);
+}
+#firstSection .letter #enveloppe {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background-color: rgb(134, 106, 80);
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 100;
+  overflow: visible;
+}
+#firstSection .letter #enveloppe:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.03);
+}
+#firstSection .letter #enveloppe::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgb(182, 142, 105);
+  position: absolute;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+          clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+  filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+  transform-origin: top;
+  z-index: 10;
+  transition: z-index 0.3s cubic-bezier(1, 0, 1, 0);
+  transition: transform 0.3s ease;
+}
+#firstSection .letter #enveloppe::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgb(182, 142, 105);
+  position: absolute;
+  -webkit-clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%);
+  transition: 0.3s;
+  transition-delay: 0.7s;
+}
+#firstSection .letter #enveloppe #maskPostIt {
+  height: 300px;
+  position: absolute;
+  top: -1000px;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 1000px;
+  transition: 0.3s;
+  transition-delay: 1s;
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it {
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+  background: url("./assets/clear-white-plaster-texture-pattern.jpg"), rgba(247, 48, 48, 0.1);
+  background-size: cover; /* Ajuste l'image */
+  background-blend-mode: multiply; /* Mélange des couches */
+  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.5);
+  padding: 40px 30px 0px 40px;
+  transform-origin: top;
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it #divImgPostIt {
+  position: relative;
+  width: 50%;
+  float: left;
+  margin-right: 20px;
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it #divImgPostIt #scotchImg {
+  width: 70%;
+  position: absolute;
+  background: url("./assets/crumpled-white-paperboard.jpg"), rgba(78, 78, 78, 0.1);
+  background-size: cover;
+  background-blend-mode: multiply;
+  content: "";
+  height: 25px;
+  top: -15px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
+  -webkit-clip-path: polygon(0% 20%, 10% 0%, 90% 0%, 95% 10%, 100% 100%, 10% 85%, 5% 88%, 0% 85%);
+          clip-path: polygon(0% 20%, 10% 0%, 90% 0%, 95% 10%, 100% 100%, 10% 85%, 5% 88%, 0% 85%);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it #divImgPostIt #imgPostIt {
+  -webkit-clip-path: polygon(0% 5%, 20% 0%, 80% 0%, 90% 2%, 92% 5%, 100% 4%, 100% 90%, 100% 100%, 98% 98%, 80% 95%, 60% 95%, 50% 100%, 40% 95%, 32% 96%, 30% 95%, 15% 100%, 5% 95%, 0% 90%);
+          clip-path: polygon(0% 5%, 20% 0%, 80% 0%, 90% 2%, 92% 5%, 100% 4%, 100% 90%, 100% 100%, 98% 98%, 80% 95%, 60% 95%, 50% 100%, 40% 95%, 32% 96%, 30% 95%, 15% 100%, 5% 95%, 0% 90%);
+  overflow: hidden;
+  width: 100%;
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it #divImgPostIt #imgPostIt img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it #textPostIt p {
+  font-family: "MyUglyHandwriting";
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it #textPostIt p:first-child {
+  margin-top: 0px;
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it .signDiv {
+  display: flex;
+  justify-content: space-between;
+}
+#firstSection .letter #enveloppe #maskPostIt #post-it iframe .BackgroundColorContainer_backgroundColorContainer__YZSQ7 {
+  background-color: violet;
+}
+#firstSection #background {
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  transition: 0.3s;
+}
+#firstSection #background .bubbles {
+  display: flex;
+  align-items: end;
+}
+#firstSection #background .bubbles span {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background-color: rgb(5, 73, 31);
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px rgba(5, 73, 31, 0.5), 0 0 50px rgb(5, 73, 31), 0 0 100px rgb(5, 73, 31);
+  animation: animate 15s linear infinite;
+  animation-duration: calc(150s / var(--i));
+}
+#firstSection #background .bubbles span:nth-child(even) {
+  background-color: red;
+  box-shadow: 0 0 0 10px rgba(255, 0, 0, 0.5), 0 0 50px red, 0 0 100px red;
+}
+@keyframes animate {
+  0% {
+    transform: translateY(100px) scale(0);
+  }
+  100% {
+    transform: translateY(-1050px) scale(1);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  #firstSection {
+    flex-direction: column;
+  }
+  #firstSection #post-it {
+    width: 80%;
+  }
+  #firstSection #post-it .signDiv {
+    flex-direction: column;
+  }
+  #firstSection #background {
+    display: none;
+  }
+}/*# sourceMappingURL=index.css.map */
